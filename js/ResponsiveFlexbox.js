@@ -1,6 +1,4 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
  * @flow
  */
 
@@ -51,7 +49,7 @@ export default class ResponsiveFlexbox extends Component {
     const { width, height } = Dimensions.get('window');
 
     return (
-      <ScrollView style={ { flex: 1 } }>
+      <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
         <View style={ [
           styles.composition,
           isVenti && styles.compositionVenti,
