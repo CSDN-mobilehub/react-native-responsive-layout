@@ -231,7 +231,6 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   article: {
-    position: 'relative',
     flex: 1,
     flexDirection: 'column'
   },

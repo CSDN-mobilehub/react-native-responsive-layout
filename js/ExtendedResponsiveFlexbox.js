@@ -166,7 +166,6 @@ const styles = EStyleSheet.create({
     marginTop: 10
   },
   article: {
-    position: 'relative',
     flex: 1,
     flexDirection: 'column',
     '@media (min-width: 376)': {
