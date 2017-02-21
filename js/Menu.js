@@ -23,6 +23,12 @@ export default class Menu extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      routes: this.state.routes.cloneWithRows(nextProps.routes || [])
+    });
+  }
+
   render() {
     const {onNavigate} = this.props;
 
