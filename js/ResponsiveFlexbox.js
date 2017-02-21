@@ -42,8 +42,8 @@ export default class ResponsiveFlexbox extends Component {
   }
 
   render() {
-    const { 
-      isGrande, 
+    const {
+      isGrande,
       isVenti,
       articleMainWidth
     } = this.state;
@@ -77,44 +77,44 @@ export default class ResponsiveFlexbox extends Component {
                 <View style={ [ styles.nav2, styles.grey ] }></View>
                 <View style={ [ styles.nav3, styles.yellow ] }></View>
               </View>
-              <View style={ [ 
-                styles.article, 
-                isGrande && styles.articleGrande 
+              <View style={ [
+                styles.article,
+                isGrande && styles.articleGrande
               ] }>
-                <View style={ styles.articleMain } 
+                <View style={ styles.articleMain }
                   onLayout={ this.onArticleMainLayout }>
-                  <View style={ [ 
-                    styles.section1, 
-                    isGrande && styles.section1Grande, 
-                    styles.red 
+                  <View style={ [
+                    styles.section1,
+                    isGrande && styles.section1Grande,
+                    styles.red
                   ] }></View>
-                  <View style={ [ 
-                    styles.section2, 
+                  <View style={ [
+                    styles.section2,
                     isGrande && styles.section2Grande,
                     isGrande && {
                       width: articleMainWidth / 2 - 5
                     },
-                    styles.grey 
+                    styles.grey
                   ] }></View>
-                  <View style={ [ 
-                    styles.section3, 
-                    isGrande && styles.section3Grande, 
+                  <View style={ [
+                    styles.section3,
+                    isGrande && styles.section3Grande,
                     isGrande && {
                       width: articleMainWidth / 2 - 5
                     },
-                    styles.grey 
+                    styles.grey
                   ] }></View>
-                  <View style={ [ 
-                    styles.section4, 
+                  <View style={ [
+                    styles.section4,
                     isGrande && {
                       width: articleMainWidth / 2 - 5
-                    }, 
-                    styles.white 
+                    },
+                    styles.white
                   ] }></View>
                 </View>
-                <View style={ [ 
-                  styles.articleWidget, 
-                  isGrande && styles.articleWidgetGrande 
+                <View style={ [
+                  styles.articleWidget,
+                  isGrande && styles.articleWidgetGrande
                 ] }>
                   <View style={ [ styles.widget1, styles.yellow ] }></View>
                   <View style={ styles.widget2 }>
@@ -122,19 +122,19 @@ export default class ResponsiveFlexbox extends Component {
                     <View style={ [ styles.widget22, styles.white ] }></View>
                   </View>
                   <View style={ [ styles.widget3, styles.white ] }></View>
-                  <View style={ [ 
-                    styles.widget4, 
-                    isGrande && styles.widget4Grande, 
-                    styles.blue 
+                  <View style={ [
+                    styles.widget4,
+                    isGrande && styles.widget4Grande,
+                    styles.blue
                   ] }></View>
                 </View>
-                <View style={ [ 
-                  styles.articleFooter, 
-                  isGrande && styles.articleFooterGrande,  
+                <View style={ [
+                  styles.articleFooter,
+                  isGrande && styles.articleFooterGrande,
                   isGrande && {
                     left: articleMainWidth / 2 + 5
                   },
-                  styles.white 
+                  styles.white
                 ] }></View>
               </View>
             </View>
@@ -143,14 +143,14 @@ export default class ResponsiveFlexbox extends Component {
             styles.sidebar,
             isVenti && styles.sidebarVenti
           ] }>
-            <View style={ [ 
-              styles.sidebar1, 
-              styles.grey 
+            <View style={ [
+              styles.sidebar1,
+              styles.grey
             ] }></View>
-            <View style={ [ 
-              styles.sidebar2, 
+            <View style={ [
+              styles.sidebar2,
               isVenti && styles.sidebar2Venti,
-              styles.red 
+              styles.red
             ] }></View>
           </View>
         </View>
@@ -347,7 +347,7 @@ const styles = StyleSheet.create({
     marginTop: 10
   },
   sidebar2Venti: {
-    height: 90,  
+    height: 90,
     flex: 0
   }
 });
