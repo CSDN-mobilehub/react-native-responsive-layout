@@ -10,110 +10,52 @@ import {
   ScrollView,
   Dimensions
 } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 export default class ResponsiveFlexbox extends Component {
-  constructor(props) {
-    super(props);
-    this.onCompositionLayout = this.onCompositionLayout.bind(this);
-    this.onArticleMainLayout = this.onArticleMainLayout.bind(this);
-
-    this.state = {
-      isGrande: false,
-      isVenti: false,
-      articleMainWidth: 0
-    };
-  }
-
-  onArticleMainLayout(e) {
-    this.setState({
-      articleMainWidth: e.nativeEvent.layout.width
-    });
-  }
-
-  onCompositionLayout() {
-    const { width, height } = Dimensions.get('window');
-
-    this.setState({
-      isGrande: width > 375,
-      isVenti: width > 640
-    });
-  }
-
   render() {
-    const {
-      isGrande,
-      isVenti,
-      articleMainWidth
-    } = this.state;
-
-    const { width, height } = Dimensions.get('window');
+    const { height } = Dimensions.get('window');
 
     return (
       <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
         <View style={ [
           styles.composition,
-          isVenti && styles.compositionVenti,
           {
-            minHeight: height
+            minHeight: height - 64
           }
-        ] } onLayout={ this.onCompositionLayout }>
+        ] }>
           <View style={ styles.container }>
             <View style={ styles.header }>
               <View style={ [ styles.header1, styles.grey ] }></View>
               <View style={ [ styles.header2, styles.white ] }></View>
               <View style={ [ styles.header3, styles.yellow ] }></View>
             </View>
-            <View style={ [
-              styles.content,
-              isVenti && styles.contentVenti
-            ] }>
-              <View style={ [
-                styles.nav,
-                isVenti && styles.navVenti
-              ] }>
+            <View style={ styles.content }>
+              <View style={ styles.nav }>
                 <View style={ [ styles.nav1, styles.white ] }></View>
                 <View style={ [ styles.nav2, styles.grey ] }></View>
                 <View style={ [ styles.nav3, styles.yellow ] }></View>
               </View>
-              <View style={ [
-                styles.article,
-                isGrande && styles.articleGrande
-              ] }>
-                <View style={ styles.articleMain }
-                  onLayout={ this.onArticleMainLayout }>
+              <View style={ styles.article }>
+                <View style={ styles.articleMain }>
                   <View style={ [
                     styles.section1,
-                    isGrande && styles.section1Grande,
                     styles.red
                   ] }></View>
                   <View style={ [
                     styles.section2,
-                    isGrande && styles.section2Grande,
-                    isGrande && {
-                      width: articleMainWidth / 2 - 5
-                    },
                     styles.grey
                   ] }></View>
                   <View style={ [
                     styles.section3,
-                    isGrande && styles.section3Grande,
-                    isGrande && {
-                      width: articleMainWidth / 2 - 5
-                    },
                     styles.grey
                   ] }></View>
                   <View style={ [
                     styles.section4,
-                    isGrande && {
-                      width: articleMainWidth / 2 - 5
-                    },
                     styles.white
                   ] }></View>
                 </View>
-                <View style={ [
-                  styles.articleWidget,
-                  isGrande && styles.articleWidgetGrande
-                ] }>
+                <View style={ styles.articleWidget }>
                   <View style={ [ styles.widget1, styles.yellow ] }></View>
                   <View style={ styles.widget2 }>
                     <View style={ [ styles.widget21, styles.white ] }></View>
@@ -122,32 +64,23 @@ export default class ResponsiveFlexbox extends Component {
                   <View style={ [ styles.widget3, styles.white ] }></View>
                   <View style={ [
                     styles.widget4,
-                    isGrande && styles.widget4Grande,
                     styles.blue
                   ] }></View>
                 </View>
                 <View style={ [
                   styles.articleFooter,
-                  isGrande && styles.articleFooterGrande,
-                  isGrande && {
-                    left: articleMainWidth / 2 + 5
-                  },
                   styles.white
                 ] }></View>
               </View>
             </View>
           </View>
-          <View style={ [
-            styles.sidebar,
-            isVenti && styles.sidebarVenti
-          ] }>
+          <View style={ styles.sidebar }>
             <View style={ [
               styles.sidebar1,
               styles.grey
             ] }></View>
             <View style={ [
               styles.sidebar2,
-              isVenti && styles.sidebar2Venti,
               styles.red
             ] }></View>
           </View>
@@ -155,9 +88,9 @@ export default class ResponsiveFlexbox extends Component {
       </ScrollView>
     );
   }
-};
+}
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   white: {
     backgroundColor: '#daebf2'
   },
@@ -176,10 +109,10 @@ const styles = StyleSheet.create({
   composition: {
     flex: 1,
     backgroundColor: '#000',
-    flexDirection: 'column'
-  },
-  compositionVenti: {
-    flexDirection: 'row'
+    flexDirection: 'column',
+    '@media (min-width: 641)': {
+      flexDirection: 'row'
+    }
   },
   container: {
     flex: 1
@@ -204,22 +137,22 @@ const styles = StyleSheet.create({
     marginLeft: 10
   },
   content: {
-    flex: 1
-  },
-  contentVenti: {
-    flexDirection: 'row'
+    flex: 1,
+    '@media (min-width: 641)': {
+      flexDirection: 'row'
+    }
   },
   nav: {
     flexDirection: 'column',
     height: 200,
     flex: 0,
-    marginBottom: 10
-  },
-  navVenti: {
-    width: 40,
-    height: null,
-    marginRight: 10,
-    marginBottom: 0
+    marginBottom: 10,
+    '@media (min-width: 641)': {
+      width: 40,
+      height: null,
+      marginRight: 10,
+      marginBottom: 0
+    }
   },
   nav1: {
     flex: 9
@@ -236,10 +169,10 @@ const styles = StyleSheet.create({
   article: {
     position: 'relative',
     flex: 1,
-    flexDirection: 'column'
-  },
-  articleGrande: {
-    flexDirection: 'row'
+    flexDirection: 'column',
+    '@media (min-width: 376)': {
+      flexDirection: 'row'
+    }
   },
   articleMain: {
     flexDirection: 'column',
@@ -248,44 +181,58 @@ const styles = StyleSheet.create({
   section1: {
     height: 190,
     flexGrow: 1,
-    flexShrink: 0
-  },
-  section1Grande: {
-    height: null
+    flexShrink: 0,
+    '@media (min-width: 376)': {
+      height: null
+    }
   },
   section2: {
     marginTop: 10,
     height: 50,
-    flex: 0
-  },
-  section2Grande: {
-    alignSelf: 'flex-end'
+    flex: 0,
+    '@media (min-width: 376)': {
+      alignSelf: 'flex-end',
+      width: '50% - 65'
+    },
+    '@media (min-width: 641)': {
+      width: '50% - 105'
+    }
   },
   section3: {
     marginTop: 10,
     height: 40,
-    flex: 0
-  },
-  section3Grande: {
-    alignSelf: 'flex-end'
+    flex: 0,
+    '@media (min-width: 376)': {
+      alignSelf: 'flex-end',
+      width: '50% - 65'
+    },
+    '@media (min-width: 641)': {
+      width: '50% - 105'
+    }
   },
   section4: {
     marginTop: 10,
     height: 40,
-    flex: 0
+    flex: 0,
+    '@media (min-width: 376)': {
+      width: '50% - 65'
+    },
+    '@media (min-width: 641)': {
+      width: '50% - 105'
+    }
   },
   articleWidget: {
     flexDirection: 'column',
     height: 240,
     flex: 0,
-    marginTop: 10
-  },
-  articleWidgetGrande: {
-    width: 110,
-    flex: 0,
-    height: null,
-    marginLeft: 10,
-    marginTop: 0
+    marginTop: 10,
+    '@media (min-width: 376)': {
+      width: 110,
+      flex: 0,
+      height: null,
+      marginLeft: 10,
+      marginTop: 0
+    }
   },
   widget1: {
     flex: 9
@@ -310,31 +257,35 @@ const styles = StyleSheet.create({
   widget4: {
     height: 60,
     flex: 0,
-    marginTop: 10
-  },
-  widget4Grande: {
-    marginBottom: 30
+    marginTop: 10,
+    '@media (min-width: 376)': {
+      marginBottom: 30
+    }
   },
   articleFooter: {
     marginTop: 10,
-    height: 20
-  },
-  articleFooterGrande: {
-    position: 'absolute',
-    right: 0,
-    bottom: 0
+    height: 20,
+    '@media (min-width: 376)': {
+      position: 'absolute',
+      right: 0,
+      bottom: 0,
+      left: '50% - 55'
+    },
+    '@media (min-width: 641)': {
+      left: '50% - 95'
+    }
   },
   sidebar: {
     marginTop: 10,
     height: 80,
-    flex: 0
-  },
-  sidebarVenti: {
-    marginTop: 0,
-    marginLeft: 10,
-    width: 20,
-    height: null,
-    flex: 0
+    flex: 0,
+    '@media (min-width: 641)': {
+      marginTop: 0,
+      marginLeft: 10,
+      width: 20,
+      height: null,
+      flex: 0
+    }
   },
   sidebar1: {
     flex: 1
@@ -342,10 +293,10 @@ const styles = StyleSheet.create({
   sidebar2: {
     height: 20,
     flex: 0,
-    marginTop: 10
-  },
-  sidebar2Venti: {
-    height: 90,
-    flex: 0
+    marginTop: 10,
+    '@media (min-width: 641)': {
+      height: 90,
+      flex: 0
+    }
   }
 });

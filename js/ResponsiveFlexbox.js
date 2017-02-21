@@ -54,7 +54,7 @@ export default class ResponsiveFlexbox extends Component {
           styles.composition,
           isVenti && styles.compositionVenti,
           {
-            minHeight: height
+            minHeight: height - 64
           }
         ] } onLayout={ this.onCompositionLayout }>
           <View style={ styles.container }>
