@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import Menu from './Menu';
 import ResponsiveFlexbox from './ResponsiveFlexbox';
+import ExtendedResponsiveFlexbox from './ExtendedResponsiveFlexbox';
 
 export default class App extends Component {
   render() {
@@ -26,6 +27,11 @@ export default class App extends Component {
         title: 'ResponsiveFlexbox',
         render: (route, navigator) =>
           <ResponsiveFlexbox />
+      },
+      {
+        title: 'ExtendedResponsiveFlexbox',
+        render: (route, navigator) =>
+          <ExtendedResponsiveFlexbox />
       }
     ];
 
