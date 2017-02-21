@@ -30,26 +30,26 @@ export default class Menu extends Component {
   }
 
   render() {
-    const {onNavigate} = this.props;
+    const { onNavigate } = this.props;
 
     return (
       <ListView
-        dataSource={this.state.routes}
-        renderRow={(rowData) => (
+        dataSource={ this.state.routes }
+        renderRow={ (rowData) => (
           <TouchableOpacity
-            onPress={() => onNavigate({
+            onPress={ () => onNavigate({
               title: rowData.title
-            })}
-            style={{
+            }) }
+            style={ {
               padding: 16,
               borderBottomWidth: 1,
               borderBottomColor: '#ccc'
-            }}
+            } }
           >
-            <Text style={{ fontSize: 16 }}>{ rowData.title }</Text>
+            <Text style={ { fontSize: 16 } }>{ rowData.title }</Text>
           </TouchableOpacity>
         )}
-        style={{ backgroundColor: '#fff' }}/>
+        style={ { backgroundColor: '#fff' } }/>
     );
   }
 };

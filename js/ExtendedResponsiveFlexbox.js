@@ -14,7 +14,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build();
 
-export default class ResponsiveFlexbox extends Component {
+export default class ExtendedResponsiveFlexbox extends Component {
   render() {
     const { height } = Dimensions.get('window');
 
@@ -22,7 +22,7 @@ export default class ResponsiveFlexbox extends Component {
       <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
         <View style={ [
           styles.composition
-        ] }>
+        ] } onLayout={ () => EStyleSheet.build() }>
           <View style={ styles.container }>
             <View style={ styles.header }>
               <View style={ [ styles.header1, styles.grey ] }></View>

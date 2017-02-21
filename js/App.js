@@ -37,35 +37,35 @@ export default class App extends Component {
 
     return (
       <Navigator
-        initialRoute={{ title: routes[0].title }}
-        renderScene={(route, navigator) => {
+        initialRoute={ { title: routes[0].title } }
+        renderScene={ (route, navigator) => {
           return (
-            <View style={styles.container}>
+            <View style={ styles.container }>
               {
                 routes.find(({ title }) => title === route.title)
                   .render(route, navigator)
               }
             </View>
           );
-        }}
+        } }
         navigationBar={
           <Navigator.NavigationBar
-            style={{
+            style={ {
               borderBottomWidth: 1,
               borderBottomColor: '#cccc'
-            }}
-            routeMapper={{
+            } }
+            routeMapper={ {
               LeftButton: (route, navigator, index, navState) => index && (
                 <TouchableOpacity
-                  onPress={() => navigator.pop()}>
-                  <Text style={{ padding: 10, fontSize: 16 }}>Back</Text>
+                  onPress={ () => navigator.pop() }>
+                  <Text style={ { padding: 10, fontSize: 16 } }>Back</Text>
                 </TouchableOpacity>
               ),
               RightButton: (route, navigator, index, navState) => null,
               Title: (route, navigator, index, navState) => (
-                <Text style={{ padding: 10, fontSize: 16 }}>{ route.title }</Text>
+                <Text style={ { padding: 10, fontSize: 16 } }>{ route.title }</Text>
               )
-            }}
+            } }
           />
         }
       />
