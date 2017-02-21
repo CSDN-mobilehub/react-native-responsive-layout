@@ -52,10 +52,7 @@ export default class ResponsiveFlexbox extends Component {
       <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
         <View style={ [
           styles.composition,
-          isVenti && styles.compositionVenti,
-          {
-            minHeight: height - 64
-          }
+          isVenti && styles.compositionVenti
         ] } onLayout={ this.onCompositionLayout }>
           <View style={ styles.container }>
             <View style={ styles.header }>
@@ -247,6 +244,7 @@ const styles = StyleSheet.create({
   },
   section1: {
     height: 190,
+    minHeight: 190,
     flexGrow: 1,
     flexShrink: 0
   },

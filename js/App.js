@@ -13,9 +13,6 @@ import {
 import Menu from './Menu';
 import ResponsiveFlexbox from './ResponsiveFlexbox';
 import ExtendedResponsiveFlexbox from './ExtendedResponsiveFlexbox';
-import EStyleSheet from 'react-native-extended-stylesheet';
-
-EStyleSheet.build();
 
 export default class App extends Component {
   render() {
