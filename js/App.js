@@ -8,7 +8,8 @@ import {
   Text,
   View,
   Navigator,
-  TouchableOpacity
+  TouchableOpacity,
+  Platform
 } from 'react-native';
 import Menu from './Menu';
 import FlexboxBasics from './FlexboxBasics';
@@ -100,7 +101,10 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: 64,
+    top: Platform.select({
+      ios: 64,
+      android: 56
+    }),
     right: 0,
     bottom: 0,
     left: 0
