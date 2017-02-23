@@ -18,9 +18,7 @@ export default class PlatformExample extends Component {
         alignItems: 'center'
       } }>
         <Text>{ Platform.OS }</Text>
-        { Platform.select({
-          android: <Text>{ Platform.version }</Text>
-        }) }
+        <Text>{ Platform.Version }</Text>
         <Text>Company: { Platform.select({
           'ios': 'Apple',
           'android': 'Google'

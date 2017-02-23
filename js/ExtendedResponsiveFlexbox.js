@@ -40,7 +40,14 @@ export default class ExtendedResponsiveFlexbox extends Component {
                   <View style={ [
                     styles.section1,
                     styles.red
-                  ] }></View>
+                  ] }>
+                    <Text>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </Text>
+                    <Text>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </Text>
+                  </View>
                   <View style={ [
                     styles.section2,
                     styles.grey
@@ -184,13 +191,8 @@ const styles = EStyleSheet.create({
     flex: 1
   },
   section1: {
-    height: 190,
-    minHeight: 190,
     flexGrow: 1,
-    flexShrink: 0,
-    '@media (min-width: 376)': {
-      height: null
-    }
+    flexShrink: 0
   },
   section2: {
     marginTop: 10,
