@@ -47,8 +47,6 @@ export default class ResponsiveFlexbox extends Component {
       articleMainWidth
     } = this.state;
 
-    const { width, height } = Dimensions.get('window');
-
     const navElement = <View style={ [
       styles.nav,
       Platform.OS === 'ios' && styles.navIOS,

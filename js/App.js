@@ -11,6 +11,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Menu from './Menu';
+import Flexbox from './Flexbox';
 import ResponsiveFlexbox from './ResponsiveFlexbox';
 import ExtendedResponsiveFlexbox from './ExtendedResponsiveFlexbox';
 import PlatformExample from './PlatformExample';
@@ -24,6 +25,11 @@ export default class App extends Component {
         render: (route, navigator) =>
           <Menu onNavigate={ (nextRoute) => navigator.push(nextRoute) }
             routes={ routes }/>
+      },
+      {
+        title: 'Flexbox',
+        render: (route, navigator) =>
+          <Flexbox />
       },
       {
         title: 'ResponsiveFlexbox',
