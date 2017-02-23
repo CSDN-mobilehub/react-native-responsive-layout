@@ -8,7 +8,8 @@ import {
   Text,
   View,
   ScrollView,
-  Dimensions
+  Dimensions,
+  Platform
 } from 'react-native';
 
 export default class ResponsiveFlexbox extends Component {
@@ -48,6 +49,17 @@ export default class ResponsiveFlexbox extends Component {
 
     const { width, height } = Dimensions.get('window');
 
+    const navElement = <View style={ [
+      styles.nav,
+      Platform.OS === 'ios' && styles.navIOS,
+      Platform.OS === 'android' && styles.navAndroid,
+      isVenti && styles.navVenti
+    ] }>
+      <View style={ [ styles.nav1, styles.white ] }></View>
+      <View style={ [ styles.nav2, styles.grey ] }></View>
+      <View style={ [ styles.nav3, styles.yellow ] }></View>
+    </View>;
+
     return (
       <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
         <View style={ [
@@ -64,14 +76,7 @@ export default class ResponsiveFlexbox extends Component {
               styles.content,
               isVenti && styles.contentVenti
             ] }>
-              <View style={ [
-                styles.nav,
-                isVenti && styles.navVenti
-              ] }>
-                <View style={ [ styles.nav1, styles.white ] }></View>
-                <View style={ [ styles.nav2, styles.grey ] }></View>
-                <View style={ [ styles.nav3, styles.yellow ] }></View>
-              </View>
+              { Platform.OS === 'ios' && navElement }
               <View style={ [
                 styles.article,
                 isGrande && styles.articleGrande
@@ -132,6 +137,7 @@ export default class ResponsiveFlexbox extends Component {
                   styles.white
                 ] }></View>
               </View>
+              { Platform.OS === 'android' && navElement }
             </View>
           </View>
           <View style={ [
@@ -209,14 +215,20 @@ const styles = StyleSheet.create({
   nav: {
     flexDirection: 'column',
     height: 200,
-    flex: 0,
-    marginBottom: 10
+    flex: 0
   },
   navVenti: {
     width: 40,
     height: null,
+    marginTop: 0,
     marginRight: 10,
     marginBottom: 0
+  },
+  navIOS: {
+    marginBottom: 10
+  },
+  navAndroid: {
+    marginTop: 10
   },
   nav1: {
     flex: 9

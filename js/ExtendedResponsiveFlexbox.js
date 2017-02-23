@@ -8,7 +8,7 @@ import {
   Text,
   View,
   ScrollView,
-  Dimensions
+  Platform
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -16,7 +16,11 @@ EStyleSheet.build();
 
 export default class ExtendedResponsiveFlexbox extends Component {
   render() {
-    const { height } = Dimensions.get('window');
+    const navElement = <View style={ styles.nav }>
+      <View style={ [ styles.nav1, styles.white ] }></View>
+      <View style={ [ styles.nav2, styles.grey ] }></View>
+      <View style={ [ styles.nav3, styles.yellow ] }></View>
+    </View>;
 
     return (
       <ScrollView style={ { flex: 1, backgroundColor: '#000' } }>
@@ -30,11 +34,7 @@ export default class ExtendedResponsiveFlexbox extends Component {
               <View style={ [ styles.header3, styles.yellow ] }></View>
             </View>
             <View style={ styles.content }>
-              <View style={ styles.nav }>
-                <View style={ [ styles.nav1, styles.white ] }></View>
-                <View style={ [ styles.nav2, styles.grey ] }></View>
-                <View style={ [ styles.nav3, styles.yellow ] }></View>
-              </View>
+              { Platform.OS === 'ios' && navElement }
               <View style={ styles.article }>
                 <View style={ styles.articleMain }>
                   <View style={ [
@@ -71,6 +71,7 @@ export default class ExtendedResponsiveFlexbox extends Component {
                   styles.white
                 ] }></View>
               </View>
+              { Platform.OS === 'android' && navElement }
             </View>
           </View>
           <View style={ styles.sidebar }>
@@ -145,12 +146,18 @@ const styles = EStyleSheet.create({
     flexDirection: 'column',
     height: 200,
     flex: 0,
-    marginBottom: 10,
     '@media (min-width: 641)': {
       width: 40,
       height: null,
+      marginTop: 0,
       marginRight: 10,
       marginBottom: 0
+    },
+    '@media ios': {
+      marginBottom: 10
+    },
+    '@media android': {
+      marginTop: 10
     }
   },
   nav1: {
