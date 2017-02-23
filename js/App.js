@@ -13,6 +13,8 @@ import {
 import Menu from './Menu';
 import ResponsiveFlexbox from './ResponsiveFlexbox';
 import ExtendedResponsiveFlexbox from './ExtendedResponsiveFlexbox';
+import PlatformExample from './PlatformExample';
+import DimensionsExample from './DimensionsExample';
 
 export default class App extends Component {
   render() {
@@ -32,6 +34,16 @@ export default class App extends Component {
         title: 'ExtendedResponsiveFlexbox',
         render: (route, navigator) =>
           <ExtendedResponsiveFlexbox />
+      },
+      {
+        title: 'PlatformExample',
+        render: (route, navigator) =>
+          <PlatformExample />
+      },
+      {
+        title: 'DimensionsExample',
+        render: (route, navigator) =>
+          <DimensionsExample />
       }
     ];
 
