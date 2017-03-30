@@ -21,5 +21,5 @@ CSDN [跨平台开发在线峰会](http://edu.csdn.net/huiyiCourse/detail/268)�
 
 ## 联系方式
 
-微博: http://www.weibo.com/toruta39
-Twitter: https://twitter.com/toruta39
+* 微博: http://www.weibo.com/toruta39
+* Twitter: https://twitter.com/toruta39
