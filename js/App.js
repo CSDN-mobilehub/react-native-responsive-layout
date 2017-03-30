@@ -18,6 +18,7 @@ import ResponsiveFlexbox from './ResponsiveFlexbox';
 import ExtendedResponsiveFlexbox from './ExtendedResponsiveFlexbox';
 import PlatformExample from './PlatformExample';
 import DimensionsExample from './DimensionsExample';
+import MailAppExample from './MailAppExample';
 
 export default class App extends Component {
   render() {
@@ -57,6 +58,11 @@ export default class App extends Component {
         title: 'DimensionsExample',
         render: (route, navigator) =>
           <DimensionsExample />
+      },
+      {
+        title: 'MailAppExample',
+        render: (route, navigator) =>
+          <MailAppExample />
       }
     ];
 
